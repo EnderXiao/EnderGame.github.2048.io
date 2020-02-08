@@ -45,6 +45,7 @@ function initScore() {
 function init(grid) {
     initScore();
     let map = $('.map');
+    let cells = $('.cell').remove();
     //生成网格
     for (let i = 0; i < size; i++) {
         for (let j = 0; j < size; j++) {
@@ -404,10 +405,11 @@ function handleTouchStart(evt) {
 
 function handleTouchMove(evt) {
     let preGrid = grid;
-    let nowGrid = new Array();
     if (!xDown || !yDown) {
         return;
     }
+    let nowGrid = new Array();
+
     let xUp = evt.touches[0].clientX;
     let yUp = evt.touches[0].clientY;
 
@@ -440,13 +442,16 @@ function handleTouchMove(evt) {
     }
     if (flg)
         addBlock(grid);
-    let endDiv = $('#end');
+        let endDiv = $('#end');
     if (checkFull(grid)) {
         setTimeout(function () {
             endDiv.addClass('active');
         }, 500);
         return;
     }
+
+    xDown = null;
+    yDown = null;
 }
 
 //监听键盘按键事件，完成移动
@@ -496,7 +501,8 @@ function move(evt) {
         }, 500);
         return;
     }
-}
+
+};
 
 $(function () {
     let header = $('.header');

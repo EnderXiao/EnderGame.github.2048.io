@@ -34,10 +34,14 @@ function scoreUpdate(addScore) {
     }
 }
 
-function initScore() {
+function initBestScore(){
     let bestScoreDiv = $('#bestScore');
     bestScore = localStorage.getItem('bestScore') || 0;
     bestScoreDiv.html(bestScore);
+}
+
+function initScore() {
+    initBestScore();
     let scoreDiv = $('#score');
     scoreDiv.html(0);
 }

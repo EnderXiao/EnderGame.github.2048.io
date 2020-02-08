@@ -31,7 +31,7 @@ function scoreUpdate(addScore) {
     }
 }
 
-function initBestScore(){
+function initBestScore() {
     let bestScoreDiv = $('#bestScore');
     bestScore = localStorage.getItem('bestScore') || 0;
     bestScoreDiv.html(bestScore);
@@ -45,6 +45,9 @@ function initScore() {
 
 function init(grid) {
     initScore();
+    let tryAgainBtn = $('#tryAgain');
+    console.log(tryAgainBtn);
+    $('#tryAgain').attr("disabled",true);//添加disabled属性
     let map = $('.map');
     let cells = $('.cell').remove();
     //生成网格
@@ -443,12 +446,8 @@ function handleTouchMove(evt) {
     }
     if (flg)
         addBlock(grid);
-        let endDiv = $('#end');
     if (checkFull(grid)) {
-        setTimeout(function () {
-            endDiv.addClass('active');
-        }, 500);
-        return;
+        GameOver();
     }
 
     xDown = null;
@@ -495,17 +494,40 @@ function move(evt) {
     } else {
         console.log("modify");
     }
-    let endDiv = $('#end');
     if (checkFull(grid)) {
-        setTimeout(function () {
-            endDiv.addClass('active');
-        }, 500);
-        return;
+        GameOver();
     }
 
 };
 
+function GameOver() {
+    let endDiv = $('#end');
+    $('#tryAgain').removeAttr("disabled"); 移除disabled属性
+    setTimeout(function () {
+        endDiv.addClass('active');
+    }, 500);
+    return;
+}
+
+function isMobile(){
+	if( navigator.userAgent.match(/Android/i)
+		|| navigator.userAgent.match(/webOS/i)
+		|| navigator.userAgent.match(/iPhone/i)
+		|| navigator.userAgent.match(/BlackBerry/i)
+		|| navigator.userAgent.match(/Windows Phone/i)
+	)return true;
+	return false;
+}
+
 $(function () {
+    if(isMobile()){
+        $("link").attr({
+            rel: "stylesheet",
+            type: 'text/css',
+            href: 'css/2048mobile.css',
+        });
+        baseLength = 80 + 10;
+    }
     let header = $('.header');
     let container = $('.container');
     //设置各个模块位置关系

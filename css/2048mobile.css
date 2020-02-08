@@ -115,8 +115,8 @@ body {
     font-size: 50px;
     background-color: #503f63;
     border-radius: 12px;
-    height: 470px;
-    width: 470px;
+    height: 362px;
+    width: 362px;
     box-shadow: 1px 0 10px #503f63b7;
 }
 
@@ -127,8 +127,8 @@ body {
     opacity: 0;
     justify-content: center;
     float: left;
-    width: 107px;
-    height: 107px;
+    width: 80px;
+    height: 80px;
     background-color: #f0c26e;
     border-radius: 6px;
     text-align: center;
@@ -144,8 +144,8 @@ body {
     opacity: 0;
     justify-content: center;
     float: left;
-    width: 107px;
-    height: 107px;
+    width: 80px;
+    height: 80px;
     border-radius: 6px;
     text-align: center;
     line-height: 2;

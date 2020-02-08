@@ -17,12 +17,9 @@ function scoreUpdate(addScore) {
     let addDiv = $('#add');
     // let endDiv = $('#end');
     let scoreDiv = $('#score');
-    console.log(addScore);
     if (addScore > 0) {
         scoreDiv.html(score);
-        console.log(scoreDiv);
         addDiv.html("+" + addScore);
-        console.log(addDiv);
         addDiv.addClass('active');
         setTimeout(function () {
             addDiv.removeClass('active');
@@ -528,7 +525,6 @@ $(function () {
     newGameBtn.click(function () {
         init(grid);
     });
-    console.log(newGameBtn);
     //初始化地图
     init(grid);
     document.addEventListener("keydown", move);

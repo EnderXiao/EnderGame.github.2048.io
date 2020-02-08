@@ -1,0 +1,474 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #dfcee8;
+    overflow: hidden;
+}
+
+.header {
+    position: fixed;
+    top: 0;
+    width: 98%;
+    padding: 1%;
+    margin: 0;
+    color: #f0c26e;
+    background-color: #503f63;
+    text-align: center;
+    font-size: 40px;
+    min-height: 5%;
+    z-index: 3;
+    box-shadow: 1px 1px 10px #503f63bd;
+}
+
+.container {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    padding: 2%;
+    margin: 2%;
+    width: 92%;
+    height: 92%;
+}
+
+.container .title {
+    font-size: 50px;
+}
+
+.title div {
+    display: inline-block;
+    box-sizing: border-box;
+    width: 4rem;
+    height: 4rem;
+    line-height: 4rem;
+    margin: 0 0.4rem;
+    color: #F0C26E;
+    background-color: #54457F;
+}
+
+.title div:nth-of-type(2) {
+    background-color: #AC7B84;
+}
+
+.title div:nth-of-type(3) {
+    background-color: #503F63;
+}
+
+.title div:nth-of-type(4) {
+    background-color: rgb(234, 233, 240);
+    box-shadow: rgba(240, 194, 110, 0.74);
+}
+
+.container .great {
+    position: relative;
+    z-index: 2;
+    margin: 20px;
+    font-size: 35px;
+    color: #503f63;
+}
+
+
+.scores {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.score-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    margin: 1rem;
+    font-size: 1.2rem;
+    line-height: 1;
+    color: #362141;
+}
+
+.score-container.best-score {
+    color: #8960b8;
+}
+
+.score {
+    margin-left: 1rem;
+    position: relative;
+    font-weight: bold;
+    font-size: 1.5rem;
+    vertical-align: middle;
+    text-align: right;
+}
+
+
+.container .map {
+    position: relative;
+    z-index: 2;
+    display: block;
+    margin: 2% auto;
+    padding: 3px;
+    font-size: 50px;
+    background-color: #503f63;
+    border-radius: 12px;
+    height: 470px;
+    width: 470px;
+    box-shadow: 1px 0 10px #503f63b7;
+}
+
+.map .row {
+    display: block;
+    margin: 5px 5px 5px;
+    width: 450px;
+    height: 105px;
+}
+
+.bg {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    opacity: 0;
+    justify-content: center;
+    float: left;
+    width: 107px;
+    height: 107px;
+    background-color: #f0c26e;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 2;
+    transition: 110ms ease-in-out;
+    -webkit-transition: 110ms ease-in-out;
+}
+
+.cell {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    opacity: 0;
+    justify-content: center;
+    float: left;
+    width: 107px;
+    height: 107px;
+    border-radius: 6px;
+    text-align: center;
+    line-height: 2;
+    transition: 110ms ease-in-out;
+    -webkit-transition: 110ms ease-in-out;
+    background-color: rgb(234, 233, 240);
+    color: #F0C26E;
+    box-shadow: 0 0 40px rgba(240, 194, 110, 0.874);
+}
+
+.cell-shadow {
+    box-shadow: 0 0 20px rgba(255, 208, 0, 0.74);
+}
+
+.cell--2 {
+    background-color: #5D4E6D;
+    color: #F0C26E;
+    box-shadow: 0 0 30px rgba(93, 78, 109, 0.74);
+}
+
+.cell--4 {
+    background-color: #54457F;
+    color: #F0C26E;
+    box-shadow: 0 0 30px rgba(84, 69, 127, 0.74);
+
+}
+
+.cell--8 {
+    background-color: rgb(151, 38, 51);
+    color: #F0C26E;
+    box-shadow: 0 0 30px rgb(151, 38, 51, 0.74);
+}
+
+.cell--16 {
+    background-color: #AC7B84;
+    color: #F0C26E;
+    box-shadow: 0 0 30px rgba(172, 123, 132, 0.74);
+}
+
+.cell--32 {
+    background-color: rgb(172, 153, 123);
+    color: #F0C26E;
+    box-shadow: 0 0 30px rgb(172, 153, 123, 0.74);
+}
+
+.cell--64 {
+    background-color: rgb(104, 165, 124);
+    color: #F0C26E;
+    box-shadow: 0 0 30px rgb(104, 165, 124, 0.74);
+}
+
+.cell--128 {
+    background-color: rgb(104, 146, 165);
+    color: #503f63;
+    box-shadow: 0 0 30px rgb(104, 146, 165, 0.74);
+}
+
+.cell--256 {
+    background-color: rgb(144, 124, 155);
+    color: #503f63;
+    box-shadow: 0 0 30px rgb(144, 124, 155, 0.74);
+}
+
+.cell--512 {
+    background-color: rgb(241, 201, 114);
+    color: #503f63;
+    box-shadow: 0 0 30px rgb(241, 201, 114, 0.74);
+}
+
+.cell--1024 {
+    background-color: rgb(236, 221, 186);
+    color: #503f63;
+    box-shadow: 0 0 30px rgb(236, 221, 186, 0.74);
+}
+
+.cell--2048 {
+    background-color: rgb(234, 233, 240);
+    color: #F0C26E;
+    box-shadow: 0 0 40px rgba(240, 194, 110, 0.90);
+}
+
+.cell--pop {
+    animation: pop 0.3s ease-in-out;
+    -webkit-animation: pop 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.cell--merge {
+    animation: merge 0.3s ease-in-out;
+    -webkit-animation: merge 0.3s ease-in-out;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.cell--shrink {
+    animation: shrink 0.5s ease-in-out;
+    -webkit-animation: shrink 0.5s ease-in-out;
+    animation-fill-mode: forwards;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.add {
+    position: absolute;
+    opacity: 0;
+    left: 120%;
+    top: 0;
+    font-size: 1rem;
+    color: rgb(151, 38, 51);
+}
+
+.add.active {
+    -webkit-animation: add 0.8s ease-in-out;
+    animation: add 0.8s ease-in-out;
+}
+
+/*定义动画*/
+
+
+
+@keyframes add {
+    0% {
+        opacity: 1;
+        top: 0;
+    }
+
+    100% {
+        opacity: 0;
+        top: -100%;
+    }
+}
+
+@-webkit-keyframes add {
+    0% {
+        opacity: 1;
+        top: 0;
+    }
+
+    100% {
+        opacity: 0;
+        top: -100%;
+    }
+}
+
+/*添加block时缩放动画*/
+
+@keyframes merge {
+    0% {
+        /* color: black; */
+        transform: scale(0.6);
+        -webkit-transform: scale(0.6);
+        opacity: 0;
+    }
+
+    90% {
+        /* color: gray; */
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+    }
+
+    90% {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes pop {
+    0% {
+        transform: scale(0.5);
+        -webkit-transform: scale(0.5);
+        opacity: 0;
+    }
+
+    90% {
+        transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes shrink {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        opacity: 0.9;
+    }
+}
+
+@-webkit-keyframes shrink {
+    0% {
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0.9);
+        -webkit-transform: scale(0.9);
+        opacity: 0.9;
+    }
+}
+
+.add .active {
+    animation: add 0.8s ease-in-out;
+    -webkit-animation: add 0.8s ease-in-out;
+}
+
+
+.end {
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: rgba(85, 85, 85, 0.9);
+    color: white;
+    font-size: 2rem;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.end btn {
+    margin-top: 1rem;
+}
+
+.end.active {
+    opacity: 1;
+    z-index: 1000;
+}
+
+.btn {
+    font-family: inherit;
+    font-size: 1rem;
+    border: none;
+    background: #503f63;
+    letter-spacing: 1px;
+    color: #F0C26E;
+    font-weight: 300;
+    padding: 0.9em 1.5em;
+    border-radius: 3px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #3d304d;
+}
+
+.btn:active {
+    background-color: #32273f;
+}
+
+.btn:focus {
+    box-shadow: 0 0 10px #32273f inset;
+    outline: none;
+}
+
+.footer {
+    background-color: #503f63;
+    color: #f0c26e;
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    font-size: 15px;
+    padding: 2px 1% 2px 1%;
+    width: 98%;
+    z-index: 3;
+    box-shadow: 5px 1px 10px #503f63bd;
+}

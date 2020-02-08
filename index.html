@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport"
+        content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+    <title>2048!</title>
+    <link>
+    <link rel="stylesheet" href="css/2048.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/2048.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="title">
+            <div>2</div>
+            <div>0</div>
+            <div>4</div>
+            <div>8</div>
+        </div>
+        <div class="great">
+            Try your best to get 2048!
+        </div>
+        <div class="scores">
+            <div class="score-container best-score">
+                Best: 
+                <div class="score">
+                    <div id="bestScore">0</div>
+                </div>
+            </div>
+            <div class="score-container">
+                Current: 
+                <div class="score">
+                    <div id="score">0</div>
+                    <div class="add" id="add"></div>
+                </div>
+            </div>
+        </div>
+        <div class="map">
+            <div class="end" id="end">
+                游戏结束
+                <div class="monkey">
+
+                </div>
+                <button class="btn" id="tryAgain">
+                    再试一次
+                </button>
+            </div>
+
+        </div>
+        <div>
+            <button class="btn" id="newGame">New Game</button>
+        </div>
+    </div>
+    <div class="footer">
+        Developed by Ender
+    </div>
+</body>
+
+</html>

@@ -392,6 +392,63 @@ function mergeMark(grid) {
     return grid;
 }
 
+//监听滑动事件完成移动
+
+let xDown = null;
+let yDown = null;
+
+function handleTouchStart(evt) {
+    xDown = evt.touches[0].clientX;
+    yDown = evt.touches[0].clientY;
+};
+
+function handleTouchMove(evt) {
+    let preGrid = grid;
+    let nowGrid = new Array();
+    if (!xDown || !yDown) {
+        return;
+    }
+    let xUp = evt.touches[0].clientX;
+    let yUp = evt.touches[0].clientY;
+
+    let xDiff = xDown - xUp;
+    let yDiff = yDown - yUp;
+
+    if (Math.abs(xDiff) > Math.abs(yDiff)) {
+        if (xDiff > 0) {
+            nowGrid = moveLeft(grid);
+        } else {
+            nowGrid = moveRight(grid);
+        }
+    } else {
+        if (yDiff > 0)
+            nowGrid = moveUp(grid);
+        else {
+            nowGrid = moveDown(grid);
+        }
+    }
+    moveActive(preGrid, nowGrid);
+    grid = nowGrid;
+    let flg = false;
+    for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+            if (grid[i][j].value !== preGrid[i][j].value) {
+                flg = true;
+                break;
+            }
+        }
+    }
+    if (flg)
+        addBlock(grid);
+    let endDiv = $('#end');
+    if (checkFull(grid)) {
+        setTimeout(function () {
+            endDiv.addClass('active');
+        }, 500);
+        return;
+    }
+}
+
 //监听键盘按键事件，完成移动
 function move(evt) {
     //避免组合键冲突
@@ -455,7 +512,7 @@ $(function () {
         init(grid);
         setTimeout(function () {
             endDiv.removeClass('active');
-        },100);
+        }, 100);
         return;
     });
     newGameBtn.click(function () {
@@ -465,4 +522,6 @@ $(function () {
     //初始化地图
     init(grid);
     document.addEventListener("keydown", move);
+    document.addEventListener("touchstart", handleTouchStart, false);
+    document.addEventListener("touchmove", handleTouchMove, false);
 })

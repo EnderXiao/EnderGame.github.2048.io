@@ -502,7 +502,7 @@ function move(evt) {
 
 function GameOver() {
     let endDiv = $('#end');
-    $('#tryAgain').removeAttr("disabled"); 移除disabled属性
+    $('#tryAgain').removeAttr("disabled");//移除disabled属性
     setTimeout(function () {
         endDiv.addClass('active');
     }, 500);

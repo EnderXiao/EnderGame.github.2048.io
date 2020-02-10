@@ -55,5 +55,10 @@
         Developed by Ender
     </div>
 </body>
-
+<script type="text/javascript">
+    //禁止下拉
+    document.body.addEventListener('touchmove', function (e) {
+        e.preventDefault()
+    }, {passive: false});
+</script>
 </html>
